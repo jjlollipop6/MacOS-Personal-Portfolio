@@ -29,7 +29,7 @@ export const DOCUMENT_APP_CONFIGS: Record<DocumentAppId, DocumentAppConfig> = {
   },
   preview: {
     finderTargetPath: `${HOME_DIR}/Desktop`,
-    localFileKind: "preview",
+    localFileKind: "text",
   },
 };
 
