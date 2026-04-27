@@ -75,9 +75,10 @@ function getDefaultWindowState(appId: string): WindowState {
 // Windows listed in z-index order (first = back, last = front)
 const DESKTOP_DEFAULT_CONFIG = {
   windows: [
-    { appId: "messages", position: { x: 500, y: 60 } },
+    { appId: "safari",  position: { x: 80,  y: 50 } },
+    { appId: "disney",  position: { x: 420, y: 50 } },
   ],
-  focusedAppId: "messages",
+  focusedAppId: "disney",
 } as const;
 
 // Export for use in desktop.tsx URL handling
