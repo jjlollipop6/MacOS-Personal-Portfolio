@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <rect width="100" height="100" rx="22" fill="#1DB954"/>
+  <!-- Spotify logo: three white arcs tilted left-low to right-high (official proportions) -->
+  <!-- Top arc: widest, sweeps highest -->
+  <path d="M14 39 C34 22 66 22 86 33" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <!-- Middle arc -->
+  <path d="M18 54 C38 40 64 39 82 48" stroke="white" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <!-- Bottom arc: narrowest, lowest -->
+  <path d="M23 68 C42 58 60 57 77 64" stroke="white" stroke-width="6" stroke-linecap="round" fill="none"/>
+</svg>

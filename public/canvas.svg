@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- Dark background -->
+  <rect width="120" height="120" rx="26" fill="#1C1C1E"/>
+
+  <!-- 5×5 pixel grid, cell 13×13, gap 1px, spacing 14px, offset x=25 y=25 -->
+  <!-- Diagonal rainbow stripes: color = (col+row) % 5 -->
+  <!-- 0=red #FF3B30, 1=orange #FF9500, 2=yellow #FFCC00, 3=green #34C759, 4=blue #007AFF -->
+
+  <!-- Red: (0,0),(4,1),(3,2),(2,3),(1,4) -->
+  <rect x="25" y="25" width="13" height="13" rx="2" fill="#FF3B30"/>
+  <rect x="81" y="39" width="13" height="13" rx="2" fill="#FF3B30"/>
+  <rect x="67" y="53" width="13" height="13" rx="2" fill="#FF3B30"/>
+  <rect x="53" y="67" width="13" height="13" rx="2" fill="#FF3B30"/>
+  <rect x="39" y="81" width="13" height="13" rx="2" fill="#FF3B30"/>
+
+  <!-- Orange: (1,0),(0,1),(4,2),(3,3),(2,4) -->
+  <rect x="39" y="25" width="13" height="13" rx="2" fill="#FF9500"/>
+  <rect x="25" y="39" width="13" height="13" rx="2" fill="#FF9500"/>
+  <rect x="81" y="53" width="13" height="13" rx="2" fill="#FF9500"/>
+  <rect x="67" y="67" width="13" height="13" rx="2" fill="#FF9500"/>
+  <rect x="53" y="81" width="13" height="13" rx="2" fill="#FF9500"/>
+
+  <!-- Yellow: (2,0),(1,1),(0,2),(4,3),(3,4) -->
+  <rect x="53" y="25" width="13" height="13" rx="2" fill="#FFCC00"/>
+  <rect x="39" y="39" width="13" height="13" rx="2" fill="#FFCC00"/>
+  <rect x="25" y="53" width="13" height="13" rx="2" fill="#FFCC00"/>
+  <rect x="81" y="67" width="13" height="13" rx="2" fill="#FFCC00"/>
+  <rect x="67" y="81" width="13" height="13" rx="2" fill="#FFCC00"/>
+
+  <!-- Green: (3,0),(2,1),(1,2),(0,3),(4,4) -->
+  <rect x="67" y="25" width="13" height="13" rx="2" fill="#34C759"/>
+  <rect x="53" y="39" width="13" height="13" rx="2" fill="#34C759"/>
+  <rect x="39" y="53" width="13" height="13" rx="2" fill="#34C759"/>
+  <rect x="25" y="67" width="13" height="13" rx="2" fill="#34C759"/>
+  <rect x="81" y="81" width="13" height="13" rx="2" fill="#34C759"/>
+
+  <!-- Blue: (4,0),(3,1),(2,2),(1,3),(0,4) -->
+  <rect x="81" y="25" width="13" height="13" rx="2" fill="#007AFF"/>
+  <rect x="67" y="39" width="13" height="13" rx="2" fill="#007AFF"/>
+  <rect x="53" y="53" width="13" height="13" rx="2" fill="#007AFF"/>
+  <rect x="39" y="67" width="13" height="13" rx="2" fill="#007AFF"/>
+  <rect x="25" y="81" width="13" height="13" rx="2" fill="#007AFF"/>
+</svg>
