@@ -121,7 +121,7 @@ function getDesktopDefaultState(): WindowManagerState {
     state.windows[config.appId].zIndex = index + 1;
     state.windows[config.appId].position = config.position;
     if ('size' in config && config.size) {
-      state.windows[config.appId].size = config.size;
+      state.windows[config.appId].size = config.size as Size;
     }
   });
 
