@@ -114,10 +114,10 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
   const showLinkedIn = isLinkedInUrl(currentUrl);
 
   return (
-    <div className="h-full w-full flex flex-col overflow-hidden bg-[#F6F6F6] select-none">
+    <div className="h-full w-full flex flex-col overflow-hidden bg-[#F6F6F6] dark:bg-[#1E1E1E] select-none">
       {/* Title bar / toolbar — outer div is the drag zone */}
       <div
-        className="flex-shrink-0 bg-[#ECECEC] border-b border-[#C8C8C8]"
+        className="flex-shrink-0 bg-[#ECECEC] dark:bg-[#2C2C2E] border-b border-[#C8C8C8] dark:border-[#3A3A3C]"
         style={{ boxShadow: "0 1px 0 rgba(0,0,0,0.08)" }}
         onMouseDown={nav.inShell ? nav.onDragStart : undefined}
       >
@@ -144,7 +144,7 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
               onMouseDown={(e) => e.stopPropagation()}
               className={cn(
                 "w-7 h-7 flex items-center justify-center rounded-md transition-colors",
-                canGoBack ? "text-[#1C1C1E] can-hover:hover:bg-black/10" : "text-[#C7C7CC]"
+                canGoBack ? "text-[#1C1C1E] dark:text-[#F2F2F7] can-hover:hover:bg-black/10 dark:can-hover:hover:bg-white/10" : "text-[#C7C7CC] dark:text-[#48484A]"
               )}
             >
               <ChevronLeft className="w-5 h-5" />
@@ -155,7 +155,7 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
               onMouseDown={(e) => e.stopPropagation()}
               className={cn(
                 "w-7 h-7 flex items-center justify-center rounded-md transition-colors",
-                canGoForward ? "text-[#1C1C1E] can-hover:hover:bg-black/10" : "text-[#C7C7CC]"
+                canGoForward ? "text-[#1C1C1E] dark:text-[#F2F2F7] can-hover:hover:bg-black/10 dark:can-hover:hover:bg-white/10" : "text-[#C7C7CC] dark:text-[#48484A]"
               )}
             >
               <ChevronRight className="w-5 h-5" />
@@ -170,14 +170,14 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
                 className={cn(
                   "flex items-center h-7 rounded-md px-3 transition-all cursor-text",
                   isEditing
-                    ? "bg-white ring-2 ring-[#007AFF]/60 shadow-sm"
-                    : "bg-white/70 can-hover:hover:bg-white/90 shadow-inner"
+                    ? "bg-white dark:bg-[#3A3A3C] ring-2 ring-[#007AFF]/60 shadow-sm"
+                    : "bg-white/70 dark:bg-white/10 can-hover:hover:bg-white/90 dark:can-hover:hover:bg-white/15 shadow-inner"
                 )}
               >
                 {isLoading ? (
                   <div className="w-3 h-3 rounded-full border-2 border-[#007AFF] border-t-transparent animate-spin mr-2 flex-shrink-0" />
                 ) : (
-                  <svg className="w-3 h-3 text-[#8E8E93] mr-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="w-3 h-3 text-[#8E8E93] dark:text-[#636366] mr-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <circle cx="12" cy="12" r="10" />
                     <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" strokeLinecap="round" />
                   </svg>
@@ -189,7 +189,7 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
                   onFocus={() => { setIsEditing(true); setAddressInput(currentUrl); }}
                   onBlur={() => { setIsEditing(false); setAddressInput(currentUrl); }}
                   onKeyDown={handleKeyDown}
-                  className="flex-1 bg-transparent text-[13px] text-[#1C1C1E] text-center outline-none placeholder:text-[#8E8E93] min-w-0"
+                  className="flex-1 bg-transparent text-[13px] text-[#1C1C1E] dark:text-[#F2F2F7] text-center outline-none placeholder:text-[#8E8E93] dark:placeholder:text-[#636366] min-w-0"
                   placeholder="Search or enter website name"
                   spellCheck={false}
                   autoComplete="off"
@@ -198,7 +198,7 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
                   <button
                     type="button"
                     onMouseDown={(e) => { e.preventDefault(); setAddressInput(""); }}
-                    className="text-[#8E8E93] can-hover:hover:text-[#1C1C1E] transition-colors ml-1 flex-shrink-0"
+                    className="text-[#8E8E93] dark:text-[#636366] can-hover:hover:text-[#1C1C1E] dark:can-hover:hover:text-[#F2F2F7] transition-colors ml-1 flex-shrink-0"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -209,21 +209,21 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
             <button
               onClick={handleReload}
               onMouseDown={(e) => e.stopPropagation()}
-              className="w-7 h-7 flex items-center justify-center rounded-md text-[#1C1C1E] transition-colors can-hover:hover:bg-black/10"
+              className="w-7 h-7 flex items-center justify-center rounded-md text-[#1C1C1E] dark:text-[#F2F2F7] transition-colors can-hover:hover:bg-black/10 dark:can-hover:hover:bg-white/10"
             >
               <RotateCcw className="w-4 h-4" />
             </button>
             <button
               onClick={() => { try { navigator.clipboard.writeText(currentUrl); } catch {} }}
               onMouseDown={(e) => e.stopPropagation()}
-              className="w-7 h-7 flex items-center justify-center rounded-md text-[#1C1C1E] transition-colors can-hover:hover:bg-black/10"
+              className="w-7 h-7 flex items-center justify-center rounded-md text-[#1C1C1E] dark:text-[#F2F2F7] transition-colors can-hover:hover:bg-black/10 dark:can-hover:hover:bg-white/10"
               title="Copy link"
             >
               <Share className="w-4 h-4" />
             </button>
             <button
               onMouseDown={(e) => e.stopPropagation()}
-              className="w-7 h-7 flex items-center justify-center rounded-md text-[#1C1C1E] transition-colors can-hover:hover:bg-black/10"
+              className="w-7 h-7 flex items-center justify-center rounded-md text-[#1C1C1E] dark:text-[#F2F2F7] transition-colors can-hover:hover:bg-black/10 dark:can-hover:hover:bg-white/10"
               title="Bookmarks"
             >
               <BookOpen className="w-4 h-4" />
@@ -234,7 +234,7 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
         {/* Mobile toolbar */}
         {isMobileView && (
           <div className="flex items-center gap-1 px-2 pb-2" onMouseDown={(e) => e.stopPropagation()}>
-            <button onClick={handleBack} disabled={!canGoBack} className={cn("w-8 h-8 flex items-center justify-center", canGoBack ? "text-[#007AFF]" : "text-[#C7C7CC]")}>
+            <button onClick={handleBack} disabled={!canGoBack} className={cn("w-8 h-8 flex items-center justify-center", canGoBack ? "text-[#007AFF]" : "text-[#C7C7CC] dark:text-[#48484A]")}>
               <ChevronLeft className="w-5 h-5" />
             </button>
             <form onSubmit={handleAddressSubmit} className="flex-1 mx-1">
@@ -245,12 +245,12 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
                 onFocus={() => { setIsEditing(true); setAddressInput(currentUrl); }}
                 onBlur={() => { setIsEditing(false); setAddressInput(currentUrl); }}
                 onKeyDown={handleKeyDown}
-                className="w-full h-8 bg-white/80 rounded-md px-3 text-[13px] text-center text-[#1C1C1E] outline-none focus:ring-2 focus:ring-[#007AFF]/60"
+                className="w-full h-8 bg-white/80 dark:bg-white/10 rounded-md px-3 text-[13px] text-center text-[#1C1C1E] dark:text-[#F2F2F7] outline-none focus:ring-2 focus:ring-[#007AFF]/60"
                 placeholder="Search or enter URL"
                 spellCheck={false}
               />
             </form>
-            <button onClick={handleForward} disabled={!canGoForward} className={cn("w-8 h-8 flex items-center justify-center", canGoForward ? "text-[#007AFF]" : "text-[#C7C7CC]")}>
+            <button onClick={handleForward} disabled={!canGoForward} className={cn("w-8 h-8 flex items-center justify-center", canGoForward ? "text-[#007AFF]" : "text-[#C7C7CC] dark:text-[#48484A]")}>
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
@@ -258,16 +258,16 @@ export function SafariApp({ isMobileView = false, inShell = false }: SafariAppPr
       </div>
 
       {/* Content area */}
-      <div className="flex-1 min-h-0 relative bg-white">
+      <div className="flex-1 min-h-0 relative bg-white dark:bg-[#1C1C1E]">
         {showLinkedIn ? (
           <LinkedInPage />
         ) : (
           <>
             {isLoading && (
-              <div className="absolute inset-0 bg-white flex items-center justify-center z-10">
+              <div className="absolute inset-0 bg-white dark:bg-[#1C1C1E] flex items-center justify-center z-10">
                 <div className="flex flex-col items-center gap-3">
                   <div className="w-8 h-8 rounded-full border-2 border-[#007AFF] border-t-transparent animate-spin" />
-                  <span className="text-sm text-[#8E8E93]">Loading…</span>
+                  <span className="text-sm text-[#8E8E93] dark:text-[#636366]">Loading…</span>
                 </div>
               </div>
             )}
