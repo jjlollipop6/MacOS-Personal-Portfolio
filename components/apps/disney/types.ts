@@ -9,7 +9,7 @@ export type DisneyView =
 
 export type TitleType = "movie" | "series";
 
-export type TitleCategory = "recommend" | "new" | "original" | "trending";
+export type TitleCategory = "recommend" | "new" | "original" | "trending" | "projects" | "personal-ventures" | "intern-pictures";
 
 export interface Episode {
   id: string;

@@ -17,8 +17,9 @@ interface HomeViewProps {
 export function HomeView({ brands, onTitleClick, onBrandClick, isMobileView }: HomeViewProps) {
   const slider = useMemo(() => getSliderTitles(), []);
   const recommends = useMemo(() => getTitlesByCategory("recommend"), []);
-  const newOnDisney = useMemo(() => getTitlesByCategory("new"), []);
-  const originals = useMemo(() => getTitlesByCategory("original"), []);
+  const projects = useMemo(() => getTitlesByCategory("projects"), []);
+  const personalVentures = useMemo(() => getTitlesByCategory("personal-ventures"), []);
+  const internPictures = useMemo(() => getTitlesByCategory("intern-pictures"), []);
   const trending = useMemo(() => getTitlesByCategory("trending"), []);
 
   return (
@@ -29,9 +30,11 @@ export function HomeView({ brands, onTitleClick, onBrandClick, isMobileView }: H
 
       <ContentRow title="Recommended for You" titles={recommends} onTitleClick={onTitleClick} isMobileView={isMobileView} />
 
-      <ContentRow title="New to Disney+" titles={newOnDisney} onTitleClick={onTitleClick} isMobileView={isMobileView} />
+      <ContentRow title="Projects" titles={projects} onTitleClick={onTitleClick} isMobileView={isMobileView} />
 
-      <ContentRow title="Originals" titles={originals} onTitleClick={onTitleClick} isMobileView={isMobileView} />
+      <ContentRow title="Personal Ventures" titles={personalVentures} onTitleClick={onTitleClick} isMobileView={isMobileView} />
+
+      <ContentRow title="Intern Pictures" titles={internPictures} onTitleClick={onTitleClick} isMobileView={isMobileView} />
 
       <ContentRow title="Trending" titles={trending} onTitleClick={onTitleClick} isMobileView={isMobileView} />
     </div>
