@@ -14,6 +14,7 @@ import {
 import { IOSHomeScreen } from "./ios-home-screen";
 import { IOSStatusBar } from "./ios-status-bar";
 import { IOSAppSwitcher } from "./ios-app-switcher";
+import { MobileShellProvider } from "@/lib/mobile-shell-context";
 
 const NotesApp = dynamic(() => import("@/components/apps/notes/notes-app").then((m) => m.NotesApp), { ssr: false });
 const MessagesApp = dynamic(() => import("@/components/apps/messages/messages-app").then((m) => m.MessagesApp), { ssr: false });
@@ -163,26 +164,28 @@ export function MobileShell({ initialApp, initialNoteSlug, initialNote }: Mobile
           >
             <IOSStatusBar className="flex-shrink-0 bg-black/50" />
 
-            <div className="flex-1 min-h-0 overflow-hidden">
-              {activeAppId === "notes" && (
-                <NotesApp
-                  isMobile={true}
-                  inShell={false}
-                  initialSlug={activeNoteSlug}
-                  initialNote={activeNoteSlug === initialNoteSlug ? initialNote : undefined}
-                />
-              )}
-              {activeAppId === "messages"  && <MessagesApp  isMobile={true} inShell={false} />}
-              {activeAppId === "settings"  && <SettingsApp  isMobile={true} inShell={false} />}
-              {activeAppId === "iterm"     && <ITermApp     isMobile={true} inShell={false} />}
-              {activeAppId === "finder"    && <FinderApp    isMobile={true} inShell={false} onOpenApp={handleOpenAppFromFinder} />}
-              {activeAppId === "calendar"  && <CalendarApp  isMobile={true} inShell={false} />}
-              {activeAppId === "weather"   && <WeatherApp   isMobile={true} inShell={false} />}
-              {activeAppId === "music"     && <MusicApp     isMobile={true} />}
-              {activeAppId === "canvas"    && <CanvasApp    isMobile={true} inShell={false} />}
-              {activeAppId === "safari"    && <SafariApp    isMobileView={true} inShell={false} />}
-              {activeAppId === "disney"    && <DisneyApp    isMobile={true} />}
-            </div>
+            <MobileShellProvider goHome={goHome}>
+              <div className="flex-1 min-h-0 overflow-hidden">
+                {activeAppId === "notes" && (
+                  <NotesApp
+                    isMobile={true}
+                    inShell={false}
+                    initialSlug={activeNoteSlug}
+                    initialNote={activeNoteSlug === initialNoteSlug ? initialNote : undefined}
+                  />
+                )}
+                {activeAppId === "messages"  && <MessagesApp  isMobile={true} inShell={false} />}
+                {activeAppId === "settings"  && <SettingsApp  isMobile={true} inShell={false} />}
+                {activeAppId === "iterm"     && <ITermApp     isMobile={true} inShell={false} />}
+                {activeAppId === "finder"    && <FinderApp    isMobile={true} inShell={false} onOpenApp={handleOpenAppFromFinder} />}
+                {activeAppId === "calendar"  && <CalendarApp  isMobile={true} inShell={false} />}
+                {activeAppId === "weather"   && <WeatherApp   isMobile={true} inShell={false} />}
+                {activeAppId === "music"     && <MusicApp     isMobile={true} />}
+                {activeAppId === "canvas"    && <CanvasApp    isMobile={true} inShell={false} />}
+                {activeAppId === "safari"    && <SafariApp    isMobileView={true} inShell={false} />}
+                {activeAppId === "disney"    && <DisneyApp    isMobile={true} />}
+              </div>
+            </MobileShellProvider>
 
             {/* Home indicator — swipe up to go home or open app switcher */}
             <div

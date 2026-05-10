@@ -1,6 +1,7 @@
 "use client";
 
 import { useWindowFocus } from "@/lib/window-focus-context";
+import { useMobileShell } from "@/lib/mobile-shell-context";
 
 interface UseWindowNavBehaviorProps {
   isDesktop?: boolean;
@@ -16,19 +17,20 @@ export function useWindowNavBehavior({
   allowStandaloneClose = true,
 }: UseWindowNavBehaviorProps) {
   const windowFocus = useWindowFocus();
+  const mobileShell = useMobileShell();
   const inShell = !!(shellEnabled && isDesktop && windowFocus);
+
+  const mobileGoHome = isMobile && mobileShell ? mobileShell.goHome : undefined;
 
   return {
     inShell,
     onDragStart: inShell ? windowFocus?.onDragStart : undefined,
     onClose: inShell
       ? windowFocus?.closeWindow
-      : allowStandaloneClose && !isMobile
-        ? () => window.close()
-        : undefined,
-    onMinimize: inShell ? windowFocus?.minimizeWindow : undefined,
+      : mobileGoHome ?? (allowStandaloneClose && !isMobile ? () => window.close() : undefined),
+    onMinimize: inShell ? windowFocus?.minimizeWindow : mobileGoHome,
     onToggleMaximize: inShell ? windowFocus?.toggleMaximize : undefined,
     isMaximized: windowFocus?.isMaximized ?? false,
-    closeLabel: inShell ? "Close window" : "Close tab",
+    closeLabel: inShell ? "Close window" : isMobile ? "Go home" : "Close tab",
   };
 }

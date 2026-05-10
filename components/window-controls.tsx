@@ -131,9 +131,9 @@ export function WindowControls({
             colorClass="bg-yellow-500"
             icon={<MinimizeIcon />}
             iconColorClass="text-black/50"
-            onClick={inShell ? onMinimize : undefined}
-            ariaLabel={inShell ? minimizeLabel : undefined}
-            interactive={inShell}
+            onClick={onMinimize}
+            ariaLabel={onMinimize ? minimizeLabel : undefined}
+            interactive={inShell || !!onMinimize}
           />
           <WindowControlButton
             colorClass="bg-green-500"
