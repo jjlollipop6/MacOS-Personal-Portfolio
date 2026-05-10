@@ -1398,7 +1398,7 @@ export function FinderApp({
     return (
       <div
         ref={containerRef}
-        className="flex flex-col h-dvh w-full bg-background"
+        className="flex flex-col h-full w-full bg-background"
         data-app="finder"
       >
         {showSidebar ? (

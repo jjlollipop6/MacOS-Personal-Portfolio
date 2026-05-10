@@ -22,7 +22,7 @@ export function ITermApp({ isMobile = false, inShell = false, onOpenTextFile }: 
       onMouseDown={() => containerRef.current?.focus()}
       className={cn(
         "iterm-app flex flex-col bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none overflow-hidden",
-        isMobile ? "h-dvh w-full" : "h-full"
+        isMobile ? "h-full w-full" : "h-full"
       )}
     >
       <Nav isMobile={isMobile} isDesktop={inShell} />
