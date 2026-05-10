@@ -32,13 +32,18 @@ const stopDragPropagation: MouseEventHandler<HTMLElement> = (event) => {
 };
 
 export function FinderSidebarMobileNav() {
+  const nav = useWindowNavBehavior({ isMobile: true });
+
   return (
     <WindowNavShell
       isMobile={true}
       left={
         <WindowControls
-          inShell={false}
+          inShell={nav.inShell}
           className="p-2"
+          onClose={nav.onClose}
+          onMinimize={nav.onMinimize}
+          onToggleMaximize={nav.onToggleMaximize}
         />
       }
       right={<WindowNavSpacer isMobile={true} />}
